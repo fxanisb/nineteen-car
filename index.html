@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nineteen Car DZ</title>
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--or:#FF5A00;--sf:#121212;--ln:#2a2a2a;--mu:#b5b5b5;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:#fff;font:400 16px/1.7 Cairo,system-ui,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+h1,h2,h3{font-weight:900;line-height:1.2;margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1180px,100% - 36px);margin-inline:auto}
+.ic{width:1.2em;height:1.2em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
+.bar{display:flex;align-items:center;gap:14px;height:68px}
+.bar .lg{height:40px;margin-inline-end:auto}
+nav{display:flex;gap:26px;font-weight:600;font-size:.95rem}
+nav a:hover{color:var(--or)}
+.lang{display:flex;border:1px solid var(--ln);border-radius:8px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--mu);font:800 .8rem Cairo,sans-serif;padding:7px 10px;cursor:pointer}
+.lang button.on{background:var(--or);color:#000}
+.menu{display:none;background:none;border:0;color:#fff;padding:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 24px;font:800 .95rem Cairo,sans-serif;border:2px solid var(--or);border-radius:10px;cursor:pointer;transition:.2s;background:transparent;color:#fff}
+.btn.p{background:var(--or);color:#000}.btn.p:hover{background:#fff;border-color:#fff}.btn.o:hover{background:var(--or);color:#000}
+section{padding:84px 0}
+.head{margin-bottom:40px}.head h2{font-size:clamp(2rem,5vw,3.2rem)}
+.head h2::after{content:"";display:block;width:64px;height:4px;background:var(--or);margin-top:12px;border-radius:2px}
+.head p{color:var(--mu);margin:12px 0 0;max-width:36em}
+/* hero 3D */
+.hero{padding:34px 0 40px;background:radial-gradient(800px 420px at 50% 62%,rgba(255,90,0,.22),transparent 70%)}
+.hero .tx{text-align:center;max-width:760px;margin-inline:auto}
+.hero .big{width:min(420px,80%);margin-bottom:6px}
+.hero h1{font-size:clamp(1.9rem,5vw,3.4rem)}.hero h1 b{color:var(--or)}
+.hero p{color:#ddd;margin:10px 0 22px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.stage{perspective:1100px;height:clamp(330px,52vw,430px);margin-top:22px;cursor:grab;touch-action:pan-y;user-select:none;position:relative}
+.stage:active{cursor:grabbing}
+.stage::after{content:"";position:absolute;left:12%;right:12%;bottom:4%;height:26px;background:radial-gradient(closest-side,rgba(255,90,0,.5),transparent);filter:blur(8px)}
+.ring{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
+.pn{position:absolute;border-radius:14px;overflow:hidden;border:1px solid #ffffff30;box-shadow:0 18px 40px #000a;backface-visibility:visible}
+.pn img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hint{text-align:center;color:var(--mu);font-size:.85rem;margin-top:8px}
+/* services */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;perspective:1000px}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:16px;padding:28px 24px;transition:transform .15s,border-color .3s;transform-style:preserve-3d}
+.card:hover{border-color:var(--or)}
+.card .ic{width:42px;height:42px;color:var(--or);margin-bottom:14px;transform:translateZ(30px)}
+.card h3{font-size:1.35rem;margin-bottom:8px;transform:translateZ(20px)}.card p{margin:0;color:var(--mu);font-size:.95rem}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;perspective:1000px}
+.tile{position:relative;aspect-ratio:3/4;border:1px solid var(--ln);border-radius:16px;overflow:hidden;padding:0;cursor:pointer;background:#0f0f0f;color:#fff;transition:transform .15s;transform-style:preserve-3d;box-shadow:0 14px 30px #0008}
+.tile img{width:100%;height:100%;object-fit:cover;display:block}
+.tile span{position:absolute;inset:auto 0 0;padding:34px 14px 12px;background:linear-gradient(transparent,#000d);font:800 1.05rem Cairo,sans-serif;text-align:start}
+.tile:hover{border-color:var(--or)}
+/* videos */
+.vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;perspective:1000px}
+.vd{position:relative;aspect-ratio:464/848;border-radius:16px;overflow:hidden;border:1px solid var(--ln);background:#0f0f0f;cursor:pointer;transition:transform .15s;transform-style:preserve-3d;box-shadow:0 14px 30px #0008}
+.vd video{width:100%;height:100%;object-fit:cover;display:block}
+.vd i{position:absolute;inset-inline-end:10px;top:10px;background:#000a;border-radius:20px;padding:4px 10px;font:800 .75rem Cairo,sans-serif;font-style:normal}
+/* why/contact */
+.why{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.why p{color:var(--mu)}.why ul{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px}
+.why li{display:flex;gap:10px}.why li .ic{color:var(--or);margin-top:6px}
+.stat{display:flex;align-items:baseline;gap:18px;background:var(--sf);border:1px solid var(--ln);border-inline-start:4px solid var(--or);border-radius:12px;padding:16px 24px;margin-bottom:12px}
+.stat b{font:900 clamp(2.4rem,6vw,3.4rem)/1 Cairo,sans-serif;color:var(--or);min-width:2.4em;direction:ltr;text-align:center}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.ctc{display:grid;gap:14px;align-content:start}
+.ctc a.row{display:flex;align-items:center;gap:14px;background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:16px 18px;font-weight:800;transition:.2s}
+.ctc a.row:hover{border-color:var(--or);color:var(--or)}.ctc .ic{color:var(--or);width:26px;height:26px}
+.ctc .num{direction:ltr}
+form{display:grid;gap:12px}label{display:grid;gap:5px;font-weight:600;font-size:.9rem}
+input,select,textarea{width:100%;background:var(--sf);border:1px solid var(--ln);color:#fff;padding:12px 14px;font:400 16px Cairo,sans-serif;border-radius:10px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--or)}
+footer{border-top:1px solid var(--ln);padding:30px 0;color:var(--mu);font-size:.9rem}
+.fr{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+.fab{position:fixed;inset-inline-end:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:55;width:58px;height:58px;border-radius:50%;background:var(--or);color:#000;display:grid;place-items:center;box-shadow:0 8px 26px rgba(255,90,0,.5)}
+.fab .ic{width:28px;height:28px}
+.lb{position:fixed;inset:0;z-index:100;background:#000e;display:none;align-items:center;justify-content:center;padding:16px}.lb.on{display:flex}
+.lbc{position:relative;width:min(520px,100%);max-height:100%;background:var(--sf);border:1px solid var(--ln);border-radius:16px;overflow:hidden}
+.lbc img{width:100%;max-height:72vh;object-fit:contain;display:block;background:#000}
+.lbc div{padding:14px 18px;font-weight:800;font-size:1.2rem}
+.lbc button{position:absolute;top:45%;background:#000a;border:1px solid var(--ln);color:#fff;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:1.3rem}
+.lbc .x{top:10px;inset-inline-end:10px}.lbc .pv{inset-inline-start:8px}.lbc .nx{inset-inline-end:8px}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+@media(max-width:860px){
+ nav{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--ln);display:none;padding:6px 18px 12px}
+ nav.open{display:flex}nav a{padding:12px 0;border-bottom:1px solid var(--ln)}.menu{display:block}
+ .why,.cg{grid-template-columns:1fr}section{padding:60px 0}.bar .call{display:none}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+<symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .7a4 4 0 0 1-2-2l.7-1-1-2z"/></symbol>
+<symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5zM3 12.5l9 5 9-5"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+<symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z"/></symbol>
+<symbol id="i-glass" viewBox="0 0 24 24"><path d="M4 18l2-9a2 2 0 0 1 2-1.5h8a2 2 0 0 1 2 1.5l2 9z"/><path d="M8 13h8"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+</defs></svg>
+<header><div class="wrap bar">
+ <a href="#home"><img class="lg" id="lg" alt="Nineteen Car"></a>
+ <nav id="nav"><a href="#home" data-t="n1"></a><a href="#services" data-t="n2"></a><a href="#cars" data-t="n3"></a><a href="#videos" data-t="n4"></a><a href="#contact" data-t="n5"></a></nav>
+ <a class="btn p call" href="tel:+213556020555" style="padding:9px 16px"><svg class="ic"><use href="#i-phone"/></svg><span dir="ltr">0556020555</span></a>
+ <div class="lang" id="lang"><button data-l="ar">AR</button><button data-l="en">EN</button><button data-l="fr">FR</button></div>
+ <button class="menu" id="mb" aria-label="Menu"><svg class="ic" style="width:28px;height:28px"><use href="#i-menu"/></svg></button>
+</div></header>
+<main>
+<section class="hero" id="home"><div class="wrap">
+ <div class="tx">
+  <img class="big" id="lg2" alt="Nineteen Car">
+  <h1 data-t="h1"></h1>
+  <p data-t="sub"></p>
+  <div class="cta"><a class="btn p" href="#cars" data-t="c1"></a><a class="btn o" href="https://wa.me/213556020555" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg><span data-t="c2"></span></a></div>
+ </div>
+ <div class="stage" id="stage"><div class="ring" id="ring"></div></div>
+ <div class="hint" data-t="hint"></div>
+</div></section>
+
+<section id="services"><div class="wrap">
+ <div class="head rv"><h2 data-t="s0"></h2><p data-t="s0p"></p></div>
+ <div class="cards">
+  <article class="card tilt rv"><svg class="ic"><use href="#i-layers"/></svg><h3 data-t="s1"></h3><p data-t="s1p"></p></article>
+  <article class="card tilt rv"><svg class="ic"><use href="#i-shield"/></svg><h3 data-t="s2"></h3><p data-t="s2p"></p></article>
+  <article class="card tilt rv"><svg class="ic"><use href="#i-drop"/></svg><h3 data-t="s3"></h3><p data-t="s3p"></p></article>
+  <article class="card tilt rv"><svg class="ic"><use href="#i-glass"/></svg><h3 data-t="s4"></h3><p data-t="s4p"></p></article>
+ </div>
+</div></section>
+
+<section id="cars" style="background:#0a0a0a"><div class="wrap">
+ <div class="head rv"><h2 data-t="g0"></h2><p data-t="g0p"></p></div>
+ <div class="gal" id="gal"></div>
+</div></section>
+
+<section id="videos"><div class="wrap">
+ <div class="head rv"><h2 data-t="v0"></h2><p data-t="v0p"></p></div>
+ <div class="vids" id="vids"></div>
+</div></section>
+
+<section style="background:#0a0a0a"><div class="wrap why">
+ <div class="rv"><div class="head" style="margin-bottom:0"><h2 data-t="w0"></h2></div><p data-t="wp"></p>
+  <ul><li><svg class="ic"><use href="#i-check"/></svg><span data-t="w1"></span></li><li><svg class="ic"><use href="#i-check"/></svg><span data-t="w2"></span></li><li><svg class="ic"><use href="#i-check"/></svg><span data-t="w3"></span></li></ul></div>
+ <div class="rv"><div class="stat"><b>118+</b><span data-t="st1"></span></div><div class="stat"><b>13K+</b><span data-t="st2"></span></div><div class="stat"><b>100%</b><span data-t="st3"></span></div></div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+ <div class="head rv"><h2 data-t="k0"></h2><p data-t="k0p"></p></div>
+ <div class="cg rv">
+  <div class="ctc">
+   <a class="row" href="https://wa.me/213556020555" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg><span data-t="c2"></span></a>
+   <a class="row" href="tel:+213556020555"><svg class="ic"><use href="#i-phone"/></svg><span class="num">0556 02 05 55</span></a>
+   <a class="row" href="tel:+213773747526"><svg class="ic"><use href="#i-phone"/></svg><span class="num">0773 74 75 26</span></a>
+   <a class="row" href="https://www.instagram.com/nineteen_car_dz" target="_blank" rel="noopener"><svg class="ic"><use href="#i-ig"/></svg><span dir="ltr">@nineteen_car_dz</span></a>
+  </div>
+  <form id="f">
+   <label><span data-t="f1"></span><input name="n" required autocomplete="name"></label>
+   <label><span data-t="f2"></span><input name="t" type="tel" required autocomplete="tel" dir="ltr"></label>
+   <label><span data-t="f3"></span><input name="v" placeholder="Golf 8R"></label>
+   <label><span data-t="f4"></span><select name="s" id="sel"></select></label>
+   <label><span data-t="f5"></span><textarea name="m" rows="3"></textarea></label>
+   <button class="btn p" type="submit" data-t="f6"></button>
+  </form>
+ </div>
+</div></section>
+</main>
+<footer><div class="wrap fr"><div>© 2026 Nineteen Car DZ · <span data-t="loc"></span></div><a href="https://www.instagram.com/nineteen_car_dz" target="_blank" rel="noopener" dir="ltr">@nineteen_car_dz</a></div></footer>
+<a class="fab" href="https://wa.me/213556020555" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ic"><use href="#i-wa"/></svg></a>
+<div class="lb" id="lb" role="dialog" aria-modal="true"><div class="lbc"><button class="x" id="lx" aria-label="×">✕</button><button class="pv" id="lp" aria-label="‹">‹</button><button class="nx" id="ln" aria-label="›">›</button><img id="li" alt=""><div id="lt"></div></div></div>
+<script>
+var D={
+ "logo": "assets/logo.jpg",
+ "imgs": [
+  "assets/car1.jpg",
+  "assets/car2.jpg",
+  "assets/car3.jpg",
+  "assets/car4.jpg",
+  "assets/car5.jpg",
+  "assets/car6.jpg",
+  "assets/car7.jpg"
+ ],
+ "vids": [
+  [
+   "assets/video1.mp4",
+   "assets/video1.jpg"
+  ],
+  [
+   "assets/video2.mp4",
+   "assets/video2.jpg"
+  ],
+  [
+   "assets/video3.mp4",
+   "assets/video3.jpg"
+  ],
+  [
+   "assets/video4.mp4",
+   "assets/video4.jpg"
+  ]
+ ]
+};
+var T={
+ar:{n1:"الرئيسية",n2:"خدماتنا",n3:"سياراتنا",n4:"فيديوهات",n5:"اتصل بنا",h1:"فنّ <b>تغليف</b> وحماية السيارات",sub:"تغليف كامل، حماية PPF، سيراميك، تفحيم الزجاج وتلميع شامل — في الجزائر العاصمة.",c1:"شاهد سياراتنا",c2:"عرض سعر مجاني عبر واتساب",hint:"اسحب لتدوير السيارات ثلاثية الأبعاد · اضغط لتكبير الصورة",
+s0:"خدماتنا",s0p:"من الأفلام الملوّنة إلى الحماية طويلة الأمد، نعامل كل سيارة كقطعة عرض.",s1:"التغليف الكامل",s1p:"تغليف بالألوان اللامعة أو المطفية أو المتدرّجة، بقصّ دقيق وتشطيبات متقنة.",s2:"حماية PPF",s2p:"فيلم حماية للطلاء من الحصى والخدوش. شفاف وذاتي الترميم.",s3:"حماية السيراميك",s3p:"طبقة طاردة للماء تبرز اللمعان وتسهّل العناية لسنوات.",s4:"تفحيم الزجاج والتلميع",s4p:"زجاج مظلّل وتنظيف وتجديد كامل للداخل والخارج.",
+g0:"سياراتنا في الورشة",g0p:"أحدث السيارات التي مرّت عبر ورشتنا. اضغط على أي صورة لتكبيرها.",v0:"فيديوهات من الورشة",v0p:"لقطات حقيقية من أعمالنا. اضغط على الفيديو لتشغيل أو كتم الصوت.",
+w0:"لماذا نحن؟",wp:"كل مشروع عندنا يبدأ بفحص دقيق للهيكل وينتهي بمعاينة تحت الضوء. نستعمل أفلاماً عالية الجودة دون أي تنازل.",w1:"أفلام ومنتجات عالية الجودة ومضمونة",w2:"فنيون مدرّبون وورشة نظيفة ومجهّزة",w3:"عرض سعر مجاني واستشارة عبر واتساب",st1:"مشروع مُسلَّم",st2:"متابع على إنستغرام",st3:"زبائن راضون",
+k0:"اطلب عرض سعرك",k0p:"صِف لنا مشروعك وسنردّ عليك بسرعة عبر واتساب.",f1:"الاسم",f2:"الهاتف",f3:"السيارة",f4:"الخدمة",f5:"رسالة",f6:"إرسال الطلب",loc:"الجزائر العاصمة، الجزائر",
+o1:"التغليف الكامل",o2:"حماية PPF",o3:"حماية السيراميك",o4:"تفحيم الزجاج والتلميع",wm:"مرحباً Nineteen Car، أريد عرض سعر."},
+en:{n1:"Home",n2:"Services",n3:"Our cars",n4:"Videos",n5:"Contact",h1:"The art of car <b>wrapping</b> &amp; protection",sub:"Full wraps, PPF, ceramic coating, window tint and detailing in Algiers.",c1:"See our cars",c2:"Free quote on WhatsApp",hint:"Drag to spin the 3D showcase · tap a photo to enlarge",
+s0:"Our services",s0p:"From coloured films to long-lasting protection, every car is treated like a show piece.",s1:"Full wrap",s1p:"Gloss, matte, satin or gradient colour wraps with precise cutting and clean finishing.",s2:"PPF protection",s2p:"Paint protection film against chips and scratches. Invisible and self-healing.",s3:"Ceramic coating",s3p:"A hydrophobic layer that boosts gloss and makes upkeep easier for years.",s4:"Tint & detailing",s4p:"Tinted windows plus full interior and exterior cleaning and restoration.",
+g0:"Our cars at the shop",g0p:"The latest cars that came through our workshop. Tap any photo to enlarge.",v0:"Videos from the shop",v0p:"Real clips of our work. Tap a video to toggle sound.",
+w0:"Why choose us?",wp:"Every project starts with a bodywork check and ends with an inspection under the lights. Premium films, no compromise.",w1:"Premium, guaranteed films and products",w2:"Trained installers, clean and equipped shop",w3:"Free quote and advice on WhatsApp",st1:"Projects delivered",st2:"Instagram followers",st3:"Happy clients",
+k0:"Request your quote",k0p:"Describe your project and we will reply quickly on WhatsApp.",f1:"Name",f2:"Phone",f3:"Vehicle",f4:"Service",f5:"Message",f6:"Send my request",loc:"Algiers, Algeria",
+o1:"Full wrap",o2:"PPF protection",o3:"Ceramic coating",o4:"Tint & detailing",wm:"Hello Nineteen Car, I would like a quote."},
+fr:{n1:"Accueil",n2:"Services",n3:"Nos voitures",n4:"Vidéos",n5:"Contact",h1:"L’art de l’<b>habillage</b> et de la protection auto",sub:"Habillage complet, PPF, céramique, vitres teintées et detailing à Alger.",c1:"Voir nos voitures",c2:"Devis gratuit sur WhatsApp",hint:"Faites glisser pour tourner la vitrine 3D · touchez une photo pour l’agrandir",
+s0:"Nos services",s0p:"Du film coloré à la protection longue durée, chaque véhicule est traité comme une pièce d’exposition.",s1:"Habillage complet",s1p:"Covering brillant, mat, satiné ou dégradé, découpe précise et finitions soignées.",s2:"Protection PPF",s2p:"Film de protection contre gravillons et rayures. Invisible et auto-cicatrisant.",s3:"Protection céramique",s3p:"Traitement hydrophobe qui sublime la brillance et facilite l’entretien.",s4:"Fumée &amp; detailing",s4p:"Vitres teintées, nettoyage et rénovation complète intérieur et extérieur.",
+g0:"Nos voitures à l’atelier",g0p:"Les dernières voitures passées par notre atelier. Touchez une photo pour l’agrandir.",v0:"Vidéos de l’atelier",v0p:"De vrais extraits de nos réalisations. Touchez une vidéo pour activer le son.",
+w0:"Pourquoi nous ?",wp:"Chaque projet commence par un diagnostic de la carrosserie et se termine par un contrôle à la lumière. Films premium, aucun compromis.",w1:"Films et produits premium, garantis",w2:"Poseurs formés, atelier propre et équipé",w3:"Devis gratuit et conseils sur WhatsApp",st1:"Projets livrés",st2:"Followers Instagram",st3:"Clients satisfaits",
+k0:"Demandez votre devis",k0p:"Décrivez votre projet, nous répondons rapidement sur WhatsApp.",f1:"Nom",f2:"Téléphone",f3:"Véhicule",f4:"Service",f5:"Message",f6:"Envoyer ma demande",loc:"Alger, Algérie",
+o1:"Habillage complet",o2:"Protection PPF",o3:"Protection céramique",o4:"Fumée & detailing",wm:"Bonjour Nineteen Car, je souhaite un devis."}};
+var N=["Audi RS3","Golf 8R","Golf 8 R-Line","Audi Q3 Sportback","BMW Série 3 · 3 Series","T-Roc R","VW Tiguan"];
+var V=[0,1,2,3],L='ar',$=function(i){return document.getElementById(i)};
+$('lg').src=$('lg2').src=D.logo;
+/* language */
+function setL(l){L=l;var d=document.documentElement;d.lang=l;d.dir=l=='ar'?'rtl':'ltr';
+ document.querySelectorAll('[data-t]').forEach(function(e){e.innerHTML=T[l][e.dataset.t]});
+ var s=$('sel'),v=s.selectedIndex;s.innerHTML=[1,2,3,4].map(function(k){return '<option>'+T[l]['o'+k]+'</option>'}).join('');s.selectedIndex=Math.max(v,0);
+ document.querySelectorAll('#lang button').forEach(function(b){b.classList.toggle('on',b.dataset.l==l)});
+ document.title='Nineteen Car DZ';try{localStorage.setItem('l',l)}catch(e){}}
+$('lang').onclick=function(e){if(e.target.dataset.l)setL(e.target.dataset.l)};
+/* gallery */
+$('gal').innerHTML=D.imgs.map(function(s,i){return '<button class="tile tilt rv" data-i="'+i+'"><img src="'+s+'" alt="'+N[i]+'" loading="lazy"><span>'+N[i]+'</span></button>'}).join('');
+/* videos */
+$('vids').innerHTML=D.vids.map(function(v,i){return '<div class="vd tilt rv"><video src="'+v[0]+'" poster="'+v[1]+'" muted loop playsinline preload="metadata"></video><i>♪</i></div>'}).join('');
+var vio=new IntersectionObserver(function(es){es.forEach(function(x){var v=x.target.querySelector('video');if(x.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()})},{threshold:.4});
+document.querySelectorAll('.vd').forEach(function(e){vio.observe(e);e.onclick=function(){var v=e.querySelector('video');v.muted=!v.muted;e.querySelector('i').textContent=v.muted?'♪':'🔊';v.play()}});
+/* 3D ring */
+var ring=$('ring'),st=$('stage'),n=D.imgs.length,pw,R,panels=[],a=0,vel=0,drag=false,moved=0,sx=0;
+function build(){pw=innerWidth<600?138:190;var ph=pw*4/3;R=pw/2/Math.tan(Math.PI/n)+34;ring.innerHTML='';panels=[];
+ D.imgs.forEach(function(s,i){var p=document.createElement('div');p.className='pn';p.style.cssText='width:'+pw+'px;height:'+ph+'px;left:'+(-pw/2)+'px;top:'+(-ph/2)+'px;transform:rotateY('+(i*360/n)+'deg) translateZ('+R+'px)';p.innerHTML='<img src="'+s+'" alt="'+N[i]+'">';p.dataset.i=i;ring.appendChild(p);panels.push(p)})}
+function draw(){ring.style.transform='translateZ('+(-R)+'px) rotateY('+a+'deg)';
+ panels.forEach(function(p,i){var c=Math.cos((i*360/n+a)*Math.PI/180);p.style.filter='brightness('+(.3+.7*(c+1)/2).toFixed(2)+')'})}
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function tick(){if(!drag){a+=vel;vel*=.95;if(!rm&&Math.abs(vel)<.1)a-=.18}draw();requestAnimationFrame(tick)}
+st.addEventListener('pointerdown',function(e){drag=true;moved=0;sx=e.clientX;vel=0});
+addEventListener('pointermove',function(e){if(!drag)return;var d=e.clientX-sx;sx=e.clientX;moved+=Math.abs(d);a+=d*.45;vel=d*.45});
+addEventListener('pointerup',function(e){if(!drag)return;drag=false;if(moved<6){var p=e.target.closest&&e.target.closest('.pn');if(p)openL(+p.dataset.i)}});
+build();addEventListener('resize',build);requestAnimationFrame(tick);
+/* tilt */
+document.querySelectorAll('.tilt').forEach(function(e){e.addEventListener('pointermove',function(ev){var r=e.getBoundingClientRect(),x=(ev.clientX-r.left)/r.width-.5,y=(ev.clientY-r.top)/r.height-.5;e.style.transform='rotateY('+(x*18)+'deg) rotateX('+(-y*18)+'deg) translateZ(10px)'});['pointerleave','pointercancel'].forEach(function(k){e.addEventListener(k,function(){e.style.transform=''})})});
+/* lightbox */
+var cur=0,lb=$('lb');
+function showL(i){cur=(i+n)%n;$('li').src=D.imgs[cur];$('li').alt=N[cur];$('lt').textContent=N[cur]}
+function openL(i){showL(i);lb.classList.add('on');document.body.style.overflow='hidden'}
+function closeL(){lb.classList.remove('on');document.body.style.overflow=''}
+$('gal').onclick=function(e){var t=e.target.closest('.tile');if(t)openL(+t.dataset.i)};
+$('lx').onclick=closeL;$('lp').onclick=function(){showL(cur-1)};$('ln').onclick=function(){showL(cur+1)};
+lb.onclick=function(e){if(e.target==lb)closeL()};
+addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key=='Escape')closeL();if(e.key=='ArrowLeft')showL(cur-(L=='ar'?-1:1));if(e.key=='ArrowRight')showL(cur+(L=='ar'?-1:1))});
+/* menu, reveal, form */
+$('mb').onclick=function(){$('nav').classList.toggle('open')};$('nav').onclick=function(e){if(e.target.tagName=='A')$('nav').classList.remove('open')};
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(function(e,i){e.style.transitionDelay=(i%4)*70+'ms';io.observe(e)});
+$('f').onsubmit=function(e){e.preventDefault();var f=e.target.elements,m=T[L].wm+'\n'+T[L].f1+': '+f.n.value+'\n'+T[L].f2+': '+f.t.value+'\n'+T[L].f3+': '+f.v.value+'\n'+T[L].f4+': '+f.s.value+(f.m.value?'\n'+T[L].f5+': '+f.m.value:'');
+ window.open('https://wa.me/213556020555?text='+encodeURIComponent(m),'_blank','noopener')};
+var sl='ar';try{sl=localStorage.getItem('l')||'ar'}catch(e){}setL(T[sl]?sl:'ar');
+</script>
+</body>
+</html>
