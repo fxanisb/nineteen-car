@@ -94,6 +94,15 @@ footer{border-top:1px solid var(--ln);padding:30px 0;color:var(--mu);font-size:.
  .why,.cg{grid-template-columns:1fr}section{padding:60px 0}.bar .call{display:none}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.rv{opacity:1;transform:none}}
+.sat{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
+.rate{background:var(--sf);border:1px solid var(--ln);border-inline-start:4px solid var(--or);border-radius:12px;padding:26px 28px}
+.rate .big{font:900 4rem/1 Cairo,sans-serif;color:var(--or);direction:ltr;display:block;text-align:start}
+.rate .big small{font-size:1.4rem;color:var(--mu)}
+.stars{font-size:1.8rem;letter-spacing:.1em;background:linear-gradient(90deg,var(--or) 86%,#444 86%);-webkit-background-clip:text;background-clip:text;color:transparent;direction:ltr;display:inline-block}
+.soc{display:flex;flex-wrap:wrap;gap:8px 20px}
+.soc a{display:inline-flex;gap:6px;align-items:center}
+.soc a:hover{color:var(--or)}
+@media(max-width:700px){.sat{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -106,6 +115,9 @@ footer{border-top:1px solid var(--ln);padding:30px 0;color:var(--mu);font-size:.
 <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z"/></symbol>
 <symbol id="i-glass" viewBox="0 0 24 24"><path d="M4 18l2-9a2 2 0 0 1 2-1.5h8a2 2 0 0 1 2 1.5l2 9z"/><path d="M8 13h8"/></symbol>
 <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+<symbol id="i-tt" viewBox="0 0 24 24"><path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5M14 4c.5 2.6 2 4 4.5 4.5"/></symbol>
+<symbol id="i-fb" viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></symbol>
 <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
 </defs></svg>
 <header><div class="wrap bar">
@@ -153,6 +165,8 @@ footer{border-top:1px solid var(--ln);padding:30px 0;color:var(--mu);font-size:.
  <div class="rv"><div class="stat"><b>118+</b><span data-t="st1"></span></div><div class="stat"><b>13K+</b><span data-t="st2"></span></div><div class="stat"><b>100%</b><span data-t="st3"></span></div></div>
 </div></section>
 
+<section id="satisfaction" style="background:#0a0a0a"><div class="wrap"><div class="head rv"><h2 data-t="r0"></h2><p data-t="r0p"></p></div><div class="sat rv"><div class="rate"><div class="big">4.3<small>/5</small></div><div class="stars" aria-hidden="true">★★★★★</div><p style="margin:10px 0 4px;font-weight:800" data-t="rt"></p><p style="margin:0;color:var(--mu)" data-t="rc"></p><a class="btn p" style="margin-top:18px" href="https://www.google.com/maps/search/?api=1&amp;query=Nineteen+car+dz+Kouba+Alger" target="_blank" rel="noopener" data-t="r1"></a></div><div class="rate"><div class="big">100%</div><p style="margin:10px 0 0;font-weight:800" data-t="st3"></p></div></div></div></section>
+
 <section id="contact"><div class="wrap">
  <div class="head rv"><h2 data-t="k0"></h2><p data-t="k0p"></p></div>
  <div class="cg rv">
@@ -161,6 +175,9 @@ footer{border-top:1px solid var(--ln);padding:30px 0;color:var(--mu);font-size:.
    <a class="row" href="tel:+213556020555"><svg class="ic"><use href="#i-phone"/></svg><span class="num">0556 02 05 55</span></a>
    <a class="row" href="tel:+213773747526"><svg class="ic"><use href="#i-phone"/></svg><span class="num">0773 74 75 26</span></a>
    <a class="row" href="https://www.instagram.com/nineteen_car_dz" target="_blank" rel="noopener"><svg class="ic"><use href="#i-ig"/></svg><span dir="ltr">@nineteen_car_dz</span></a>
+   <a class="row" href="https://www.tiktok.com/@nineteencar" target="_blank" rel="noopener"><svg class="ic"><use href="#i-tt"/></svg><span dir="ltr">TikTok @nineteencar</span></a>
+   <a class="row" href="https://www.facebook.com/search/top?q=Nineteen%20car%20.dz" target="_blank" rel="noopener"><svg class="ic"><use href="#i-fb"/></svg><span dir="ltr">Facebook Nineteen car .dz</span></a>
+   <a class="row" href="https://www.google.com/maps/search/?api=1&amp;query=Nineteen+car+dz+Kouba+Alger" target="_blank" rel="noopener"><svg class="ic"><use href="#i-pin"/></svg><span data-t="addr"></span></a>
   </div>
   <form id="f">
    <label><span data-t="f1"></span><input name="n" required autocomplete="name"></label>
@@ -173,7 +190,7 @@ footer{border-top:1px solid var(--ln);padding:30px 0;color:var(--mu);font-size:.
  </div>
 </div></section>
 </main>
-<footer><div class="wrap fr"><div>© 2026 Nineteen Car DZ · <span data-t="loc"></span></div><a href="https://www.instagram.com/nineteen_car_dz" target="_blank" rel="noopener" dir="ltr">@nineteen_car_dz</a></div></footer>
+<footer><div class="wrap fr"><div>© 2026 Nineteen Car DZ · <span data-t="loc"></span></div><div class="soc" dir="ltr"><a href="https://www.instagram.com/nineteen_car_dz" target="_blank" rel="noopener"><svg class="ic"><use href="#i-ig"/></svg>Instagram</a><a href="https://www.tiktok.com/@nineteencar" target="_blank" rel="noopener"><svg class="ic"><use href="#i-tt"/></svg>TikTok</a><a href="https://www.facebook.com/search/top?q=Nineteen%20car%20.dz" target="_blank" rel="noopener"><svg class="ic"><use href="#i-fb"/></svg>Facebook</a></div></div></footer>
 <a class="fab" href="https://wa.me/213556020555" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ic"><use href="#i-wa"/></svg></a>
 <div class="lb" id="lb" role="dialog" aria-modal="true"><div class="lbc"><button class="x" id="lx" aria-label="×">✕</button><button class="pv" id="lp" aria-label="‹">‹</button><button class="nx" id="ln" aria-label="›">›</button><img id="li" alt=""><div id="lt"></div></div></div>
 <script>
@@ -212,19 +229,19 @@ ar:{n1:"الرئيسية",n2:"خدماتنا",n3:"سياراتنا",n4:"فيدي
 s0:"خدماتنا",s0p:"من الأفلام الملوّنة إلى الحماية طويلة الأمد، نعامل كل سيارة كقطعة عرض.",s1:"التغليف الكامل",s1p:"تغليف بالألوان اللامعة أو المطفية أو المتدرّجة، بقصّ دقيق وتشطيبات متقنة.",s2:"حماية PPF",s2p:"فيلم حماية للطلاء من الحصى والخدوش. شفاف وذاتي الترميم.",s3:"حماية السيراميك",s3p:"طبقة طاردة للماء تبرز اللمعان وتسهّل العناية لسنوات.",s4:"تفحيم الزجاج والتلميع",s4p:"زجاج مظلّل وتنظيف وتجديد كامل للداخل والخارج.",
 g0:"سياراتنا في الورشة",g0p:"أحدث السيارات التي مرّت عبر ورشتنا. اضغط على أي صورة لتكبيرها.",v0:"فيديوهات من الورشة",v0p:"لقطات حقيقية من أعمالنا. اضغط على الفيديو لتشغيل أو كتم الصوت.",
 w0:"لماذا نحن؟",wp:"كل مشروع عندنا يبدأ بفحص دقيق للهيكل وينتهي بمعاينة تحت الضوء. نستعمل أفلاماً عالية الجودة دون أي تنازل.",w1:"أفلام ومنتجات عالية الجودة ومضمونة",w2:"فنيون مدرّبون وورشة نظيفة ومجهّزة",w3:"عرض سعر مجاني واستشارة عبر واتساب",st1:"مشروع مُسلَّم",st2:"متابع على إنستغرام",st3:"زبائن راضون",
-k0:"اطلب عرض سعرك",k0p:"صِف لنا مشروعك وسنردّ عليك بسرعة عبر واتساب.",f1:"الاسم",f2:"الهاتف",f3:"السيارة",f4:"الخدمة",f5:"رسالة",f6:"إرسال الطلب",loc:"الجزائر العاصمة، الجزائر",
+k0:"اطلب عرض سعرك",k0p:"صِف لنا مشروعك وسنردّ عليك بسرعة عبر واتساب.",f1:"الاسم",f2:"الهاتف",f3:"السيارة",f4:"الخدمة",f5:"رسالة",f6:"إرسال الطلب",loc:"القبة، الجزائر العاصمة",addr:"رقم 80، تعاونية بونس، القبة، الجزائر العاصمة",r0:"رضا العملاء",r0p:"كل سيارة تُفحص تحت الضوء قبل التسليم، ورضاك هو مقياس نجاحنا.",rt:"تقييم العملاء على Google Maps",rc:"بناءً على 6 تقييمات",r1:"اترك تقييمك",
 o1:"التغليف الكامل",o2:"حماية PPF",o3:"حماية السيراميك",o4:"تفحيم الزجاج والتلميع",wm:"مرحباً Nineteen Car، أريد عرض سعر."},
 en:{n1:"Home",n2:"Services",n3:"Our cars",n4:"Videos",n5:"Contact",h1:"The art of car <b>wrapping</b> &amp; protection",sub:"Full wraps, PPF, ceramic coating, window tint and detailing in Algiers.",c1:"See our cars",c2:"Free quote on WhatsApp",hint:"Drag to spin the 3D showcase · tap a photo to enlarge",
 s0:"Our services",s0p:"From coloured films to long-lasting protection, every car is treated like a show piece.",s1:"Full wrap",s1p:"Gloss, matte, satin or gradient colour wraps with precise cutting and clean finishing.",s2:"PPF protection",s2p:"Paint protection film against chips and scratches. Invisible and self-healing.",s3:"Ceramic coating",s3p:"A hydrophobic layer that boosts gloss and makes upkeep easier for years.",s4:"Tint & detailing",s4p:"Tinted windows plus full interior and exterior cleaning and restoration.",
 g0:"Our cars at the shop",g0p:"The latest cars that came through our workshop. Tap any photo to enlarge.",v0:"Videos from the shop",v0p:"Real clips of our work. Tap a video to toggle sound.",
 w0:"Why choose us?",wp:"Every project starts with a bodywork check and ends with an inspection under the lights. Premium films, no compromise.",w1:"Premium, guaranteed films and products",w2:"Trained installers, clean and equipped shop",w3:"Free quote and advice on WhatsApp",st1:"Projects delivered",st2:"Instagram followers",st3:"Happy clients",
-k0:"Request your quote",k0p:"Describe your project and we will reply quickly on WhatsApp.",f1:"Name",f2:"Phone",f3:"Vehicle",f4:"Service",f5:"Message",f6:"Send my request",loc:"Algiers, Algeria",
+k0:"Request your quote",k0p:"Describe your project and we will reply quickly on WhatsApp.",f1:"Name",f2:"Phone",f3:"Vehicle",f4:"Service",f5:"Message",f6:"Send my request",loc:"Kouba, Algiers",addr:"No. 80, Coopérative Pons, Kouba, Algiers",r0:"Customer satisfaction",r0p:"Every car is inspected under the lights before delivery. Your satisfaction is how we measure our work.",rt:"Customer rating on Google Maps",rc:"Based on 6 reviews",r1:"Leave a review",
 o1:"Full wrap",o2:"PPF protection",o3:"Ceramic coating",o4:"Tint & detailing",wm:"Hello Nineteen Car, I would like a quote."},
 fr:{n1:"Accueil",n2:"Services",n3:"Nos voitures",n4:"Vidéos",n5:"Contact",h1:"L’art de l’<b>habillage</b> et de la protection auto",sub:"Habillage complet, PPF, céramique, vitres teintées et detailing à Alger.",c1:"Voir nos voitures",c2:"Devis gratuit sur WhatsApp",hint:"Faites glisser pour tourner la vitrine 3D · touchez une photo pour l’agrandir",
 s0:"Nos services",s0p:"Du film coloré à la protection longue durée, chaque véhicule est traité comme une pièce d’exposition.",s1:"Habillage complet",s1p:"Covering brillant, mat, satiné ou dégradé, découpe précise et finitions soignées.",s2:"Protection PPF",s2p:"Film de protection contre gravillons et rayures. Invisible et auto-cicatrisant.",s3:"Protection céramique",s3p:"Traitement hydrophobe qui sublime la brillance et facilite l’entretien.",s4:"Fumée &amp; detailing",s4p:"Vitres teintées, nettoyage et rénovation complète intérieur et extérieur.",
 g0:"Nos voitures à l’atelier",g0p:"Les dernières voitures passées par notre atelier. Touchez une photo pour l’agrandir.",v0:"Vidéos de l’atelier",v0p:"De vrais extraits de nos réalisations. Touchez une vidéo pour activer le son.",
 w0:"Pourquoi nous ?",wp:"Chaque projet commence par un diagnostic de la carrosserie et se termine par un contrôle à la lumière. Films premium, aucun compromis.",w1:"Films et produits premium, garantis",w2:"Poseurs formés, atelier propre et équipé",w3:"Devis gratuit et conseils sur WhatsApp",st1:"Projets livrés",st2:"Followers Instagram",st3:"Clients satisfaits",
-k0:"Demandez votre devis",k0p:"Décrivez votre projet, nous répondons rapidement sur WhatsApp.",f1:"Nom",f2:"Téléphone",f3:"Véhicule",f4:"Service",f5:"Message",f6:"Envoyer ma demande",loc:"Alger, Algérie",
+k0:"Demandez votre devis",k0p:"Décrivez votre projet, nous répondons rapidement sur WhatsApp.",f1:"Nom",f2:"Téléphone",f3:"Véhicule",f4:"Service",f5:"Message",f6:"Envoyer ma demande",loc:"Kouba, Alger",addr:"Numéro 80, Coopérative Pons, Kouba, Alger",r0:"Satisfaction client",r0p:"Chaque voiture est contrôlée sous la lumière avant la livraison. Votre satisfaction est notre mesure de réussite.",rt:"Note clients sur Google Maps",rc:"Basée sur 6 avis",r1:"Laisser un avis",
 o1:"Habillage complet",o2:"Protection PPF",o3:"Protection céramique",o4:"Fumée & detailing",wm:"Bonjour Nineteen Car, je souhaite un devis."}};
 var N=["Audi RS3","Golf 8R","Golf 8 R-Line","Audi Q3 Sportback","BMW Série 3 · 3 Series","T-Roc R","VW Tiguan"];
 var V=[0,1,2,3],L='ar',$=function(i){return document.getElementById(i)};
@@ -274,4 +291,3 @@ $('f').onsubmit=function(e){e.preventDefault();var f=e.target.elements,m=T[L].wm
 var sl='ar';try{sl=localStorage.getItem('l')||'ar'}catch(e){}setL(T[sl]?sl:'ar');
 </script>
 </body>
-</html>
